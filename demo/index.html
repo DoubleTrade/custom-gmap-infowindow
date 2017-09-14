@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>custom-gmap-infowindow demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
+  <link rel="import" href="../../polymer/lib/elements/dom-repeat.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../custom-gmap-infowindow.html">
+  <link rel="import" href="../../google-map/google-map.html">
+  <link rel="import" href="../../paper-button/paper-button.html">
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+      demo-snippet {
+        width:800px;
+      }
+      google-map {
+        width:100%;
+        height: 700px;
+        overflow: hidden;
+      }
+
+      paper-button {
+        background: var(--primary-color);
+        color: #fff;
+        width: 100%;
+        margin: 0;
+      }
+
+      custom-gmap-infowindow h3 {
+        margin: 0 0 5px 0;
+      }
+    </style>
+  </custom-style>
+</head>
+
+<body>
+  <div class="vertical-section-container centered">
+    <h3>custom-gmap-infowindow demo</h3>
+    <demo-snippet>
+      <template>
+        <dom-bind>
+          <template>
+            <google-map click-events fit-to-markers api-key="AIzaSyD3E1D9b-Z7ekrT3tbhl_dy8DCXuIuDDRc">
+              <template is="dom-repeat" items="{{cities}}" as="city">
+                <google-map-marker click-events slot="markers" latitude="[[city.latitude]]" longitude="[[city.longitude]]" city="[[city]]"></google-map-marker>
+              </template>
+              <custom-gmap-infowindow hide-marker-on-click>
+                <div class="layout vertical">
+                  <h3>[[selectedCity.name]]</h3>
+                  <img src="[[selectedCity.imgUrl]]" width="300" height="100">
+                  <p>[[selectedCity.description]]</p>
+                  <paper-button class="custom" raised onclick="handleClick()">CLICK ME !</paper-button>
+                </div>
+              </custom-gmap-infowindow>
+            </google-map>
+          </template>
+        </dom-bind>
+      </template>
+    </demo-snippet>
+  </div>
+</body>
+<script>
+  var autobind = document.querySelector('dom-bind');
+
+  // set data property on dom-bind
+  autobind.cities = [
+    {
+      name: 'Caen',
+      latitude: '49.183333',
+      longitude: '-0.350000',
+      imgUrl: 'https://www.normandyalacarte.com/wp-content/uploads/2016/05/880px-Normandie_Calvados_Caen1_tango7174-300x100.jpg',
+      description: 'Caen is a commune in northwestern France. It is the prefecture of the Calvados department. The city proper has 108,365 inhabitants (as of 2012), while its urban area has 420,000, making Caen the largest city in former Lower Normandy.'
+    },
+    {
+      name: 'Paris',
+      latitude: '48.866667',
+      longitude: '2.333333',
+      imgUrl: 'https://imagessl.etstur.com/files/images/site/images/yurtdisi/destinasyon/PARIS11.jpg',
+      description: 'Paris is the capital and most populous city of France, with an administrative-limits area of 105 square kilometres (41 square miles) and a 2015 population of 2,229,621.[2] '
+    },
+    {
+      name: 'Marseille',
+      latitude: '43.300000',
+      longitude: '5.400000',
+      imgUrl: 'http://www.panoram-art.com/galerie/france/imagettes300/11711-france-Bouches-du-Rhone-vieux-port-Marseille-panorama-sentucq.jpg',
+      description: 'The capital of the Bouches-du-Rhône department and Provence-Alpes-Côte d\'Azur region, Marseille, on France\'s south coast, is the country\'s second largest city, after Paris, with a population of 852,516 in 2012.'
+    }
+  ];
+
+  document.addEventListener('google-map-marker-click', (event) => {
+    document.querySelector('custom-gmap-infowindow').showInfoWindow(event.srcElement.marker);
+    autobind.selectedCity = event.srcElement.city
+  });
+
+  function handleClick() {
+    alert('Event handler is working, yo !');
+  }
+
+</script>
+
+</html>
