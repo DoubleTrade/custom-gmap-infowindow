@@ -1,0 +1,16 @@
+{
+    "name": "custom-gmap-infowindow",
+    "main": "ccustom-gmap-infowindow",
+    "author": "Jonathan Adeline <Bodhiz>",
+    "version": "0.0.1",
+    "description": "A customizable infowindow element for google-map web component",
+    "private": false,
+    "devDependencies": {
+      "eslint": "^4.6.1",
+      "eslint-config-airbnb": "^15.1.0",
+      "eslint-plugin-import": "^2.7.0",
+      "eslint-plugin-jsx-a11y": "^5.1.1",
+      "eslint-plugin-react": "^7.3.0",
+      "web-component-tester": "^6.0.0"
+    }
+  }

@@ -1,0 +1,110 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
+<link rel="import" href="../iron-icons/iron-icons.html" />
+<link rel="import" href="../iron-icon/iron-icon.html" />
+<link rel="import" href="../paper-styles/default-theme.html">
+<link rel="import" href="../paper-styles/shadow.html">
+<link rel="import" href="../paper-styles/typography.html">
+<link rel="import" href="../paper-styles/element-styles/paper-material-styles.html">
+
+<!--
+`custom-gmap-infowindow` is a Polymer 2.0 element allowing to customize Google map infowindow when using `google-map` official web component.
+With this component you can use event handlers and style the infowindow with CSS classes.
+
+## Demo
+
+TODO
+
+## Style Mixins
+
+The following mixins are available for styling:
+
+Custom property                              | Description                                 | Default
+---------------------------------------------|---------------------------------------------|----------
+`--custom-gmap-infowindow`                   | Mixin applied to the paper-material backing | `{position: absolute;z-index: 99;width: 300px;top: 0;left: 0;background-color: white;box-sizing: border-box;padding: 30px 15px 15px 15px;border-radius: 2px;color: black; visibility: hidden;}`
+`--custom-gmap-infowindow-caret-width`       | Mixin applied to the content container      | `15px`
+`--custom-gmap-infowindow-caret-color`       | Mixin applied to the beak                   | `#fff`
+`--custom-gmap-infowindow-caret-border-color`| Mixin applied to the content container      | `17px`
+`--custom-gmap-infowindow-caret-border-color`| Mixin applied to the beak                   | `rgba(0, 0, 0, 0.3)`
+
+
+
+@element custom-gmap-infowindow
+@demo demo/index.html
+-->
+
+<dom-module id="custom-gmap-infowindow">
+  <template>
+    <style include="paper-material-styles">
+       :host {
+        @apply --paper-font-common-base;
+      }
+
+      #mainContainer {
+        position: absolute;
+        z-index: 99;
+        width: 300px;
+        top: 0;
+        left: 0;
+        background-color: white;
+        box-sizing: border-box;
+        padding: 30px 15px 15px 15px;
+        border-radius: 2px;
+        color: black;
+        visibility: hidden;
+        @apply --custom-gmap-infowindow;
+      }
+
+      #mainContainer:after {
+        border-color: var(--custom-gmap-infowindow-caret-color, #fff) transparent transparent;
+        border-width: var(--custom-gmap-infowindow-caret-width, 15px);
+        border-style: solid;
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: calc(50%);
+        bottom: 0;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, 100%);
+      }
+
+      #mainContainer:before {
+        border-color: var(--custom-gmap-infowindow-caret-border-color, rgba(0, 0, 0, 0.3))  transparent transparent;
+        border-width: var(--custom-gmap-infowindow-caret-border-width, 17px);
+        border-style: solid;
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: calc(50%);
+        bottom: 0;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, 100%);
+      }
+
+
+      #mainContainer>div {
+        overflow: hidden;
+      }
+
+      iron-icon[icon="icons:close"] {
+        --iron-icon-width: 15px;
+        --iron-icon-height: 15px;
+        position: absolute;
+        right: 12px;
+        top: 10px;
+        color: var(--disabled-text-color);
+        cursor: pointer;
+      }
+    </style>
+    <div id="mainContainer" class="paper-material" elevation$="[[elevation]]">
+      <div>
+        <slot></slot>
+      </div>
+      <iron-icon icon="icons:close" on-tap="close"></iron-icon>
+    </div>
+  </template>
+
+</dom-module>
+<script src="custom-gmap-infowindow.js"></script>

@@ -1,0 +1,17 @@
+[
+    {
+        "city": "Caen",
+        "imgUrl": "https://media.giphy.com/media/OumKRXIupxKsU/giphy.gif",
+        "description": "Caen is a commune in northwestern France. It is the prefecture of the Calvados department. The city proper has 108,365 inhabitants (as of 2012), while its urban area has 420,000, making Caen the largest city in former Lower Normandy."
+    },
+    {
+        "city": "Paris",
+        "imgUrl": "https://media.giphy.com/media/3oD3YFjkwL38aAlfwI/giphy.gif",
+        "description": "Paris is the capital and most populous city of France, with an administrative-limits area of 105 square kilometres (41 square miles) and a 2015 population of 2,229,621.[2] "
+    },
+    {
+        "city": "Marseille",
+        "imgUrl": "https://media.giphy.com/media/wXM6SI8gKTive/giphy.gif",
+        "description": "The capital of the Bouches-du-Rhône department and Provence-Alpes-Côte d'Azur region, Marseille, on France's south coast, is the country's second largest city, after Paris, with a population of 852,516 in 2012."
+    }
+]
