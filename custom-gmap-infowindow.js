@@ -107,7 +107,7 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
     this._removeListeners();
     this.isOpen = false;
     this.$.mainContainer.style.visibility = 'hidden';
-    if (this.hideMarkerOnClick) {
+    if (this.hideMarkerOnClick && this._marker) {
       this._marker.setVisible(true);
     }
   }
