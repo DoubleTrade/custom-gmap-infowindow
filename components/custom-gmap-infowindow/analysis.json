@@ -1,0 +1,559 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "`custom-gmap-infowindow` is a Polymer 2.0 element allowing to customize Google map infowindow when using `google-map` official web component.\nWith this component you can use event handlers and style the infowindow with CSS classes.\n\n## Demo\n\nTODO\n\n## Style Mixins\n\nThe following mixins are available for styling:\n\nCustom property                              | Description                                         | Default\n---------------------------------------------|-----------------------------------------------------|----------\n`--custom-gmap-infowindow`                   | Mixin applied to the infowindow                     | `{position: absolute;z-index: 99;width: 300px;top: 0;left: 0;background-color: white;box-sizing: border-box;padding: 30px 15px 15px 15px;border-radius: 2px;color: black; visibility: hidden;}`\n`--custom-gmap-infowindow-caret-size`        | Mixin applied to the infowindow bottom caret        | `15px`\n`--custom-gmap-infowindow-caret-color`       | Mixin applied to the infowindow bottom caret        | `#fff`\n`--custom-gmap-infowindow-caret-border-size` | Mixin applied to the infowindow bottom caret border | `17px`\n`--custom-gmap-infowindow-caret-border-color`| Mixin applied to the infowindow bottom caret border | `rgba(0, 0, 0, 0.3)`\n\n`customg-gmap-infowindow`\nA customizable infowindow element for google-map web component",
+      "summary": "",
+      "path": "custom-gmap-infowindow.js",
+      "properties": [
+        {
+          "name": "elevation",
+          "type": "number",
+          "description": "Elevation of the paper material background (0 - 5)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 17,
+              "column": 6
+            },
+            "end": {
+              "line": 21,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "1"
+        },
+        {
+          "name": "hideMarkerOnClick",
+          "type": "boolean",
+          "description": "Hide the marker when opening infowindow (like Airbnb does)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 26,
+              "column": 6
+            },
+            "end": {
+              "line": 29,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Is infowindow is open",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "_dim",
+          "type": "Object",
+          "description": "Objects dimensions, necessary for positioning the infowindow",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 43,
+              "column": 6
+            },
+            "end": {
+              "line": 64,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          }
+        },
+        {
+          "name": "map",
+          "type": "Object",
+          "description": "Google map object",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 6
+            },
+            "end": {
+              "line": 73,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "observer": "\"_mapChanged\""
+            }
+          }
+        },
+        {
+          "name": "_mapListeners",
+          "type": "Array",
+          "description": "Array containing map listeners for removing purpose.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 6
+            },
+            "end": {
+              "line": 82,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "[]"
+        },
+        {
+          "name": "_marker",
+          "type": "Object",
+          "description": "Selected google map marker object",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 87,
+              "column": 6
+            },
+            "end": {
+              "line": 90,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          }
+        },
+        {
+          "name": "_overlay",
+          "type": "Object",
+          "description": "Google map overlay object",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 6
+            },
+            "end": {
+              "line": 98,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "description": "Close the infowindow",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 105,
+              "column": 2
+            },
+            "end": {
+              "line": 112,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_setInfowindowSize",
+          "description": "Set infowindow dimension",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 117,
+              "column": 2
+            },
+            "end": {
+              "line": 121,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_setMarkerSize",
+          "description": "Set the marker dimension",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 126,
+              "column": 2
+            },
+            "end": {
+              "line": 134,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_setCustomIconHeight",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 136,
+              "column": 2
+            },
+            "end": {
+              "line": 138,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_setMapSize",
+          "description": "Set the map dimension",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 143,
+              "column": 2
+            },
+            "end": {
+              "line": 147,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_initListeners",
+          "description": "Initialize map listeners",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 152,
+              "column": 2
+            },
+            "end": {
+              "line": 197,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_mapChanged",
+          "description": "when the map is set, initialize the overlay,\nwhich can take a moment since it is not loaded automatically\nwith the rest of the map apis",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 204,
+              "column": 2
+            },
+            "end": {
+              "line": 210,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_panToShowInfowindow",
+          "description": "Pan the map to move the info card into view",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 216,
+              "column": 2
+            },
+            "end": {
+              "line": 238,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "placement",
+              "type": "Iplacement",
+              "description": "current info card placement"
+            }
+          ]
+        },
+        {
+          "name": "_isInBounds",
+          "description": "Determine if the infowindow fits in map bounds",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 245,
+              "column": 2
+            },
+            "end": {
+              "line": 256,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "placement"
+            }
+          ],
+          "return": {
+            "type": "boolean",
+            "desc": "true if the infowindow fits in map bounds."
+          }
+        },
+        {
+          "name": "ready",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 258,
+              "column": 2
+            },
+            "end": {
+              "line": 265,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_removeListeners",
+          "description": "Remove map listeners",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 270,
+              "column": 2
+            },
+            "end": {
+              "line": 275,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_getInfowindowPosition",
+          "description": "Get infowindow position\n* @return {Iplacement} Infowindow position",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 281,
+              "column": 2
+            },
+            "end": {
+              "line": 304,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "showInfoWindow",
+          "description": "Shows the info card on top of the given google map marker",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 310,
+              "column": 2
+            },
+            "end": {
+              "line": 332,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "marker",
+              "type": "google.maps.Marker",
+              "description": "The marker to attach the card to"
+            }
+          ]
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/index.html",
+          "description": ""
+        },
+        {
+          "url": "demo/index.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 333,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "CustomGmapInfowindow",
+      "attributes": [
+        {
+          "name": "elevation",
+          "description": "Elevation of the paper material background (0 - 5)",
+          "sourceRange": {
+            "start": {
+              "line": 17,
+              "column": 6
+            },
+            "end": {
+              "line": 21,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number"
+        },
+        {
+          "name": "hide-marker-on-click",
+          "description": "Hide the marker when opening infowindow (like Airbnb does)",
+          "sourceRange": {
+            "start": {
+              "line": 26,
+              "column": 6
+            },
+            "end": {
+              "line": 29,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "is-open",
+          "description": "Is infowindow is open",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "map",
+          "description": "Google map object",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 6
+            },
+            "end": {
+              "line": 73,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "Object"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "elevation-changed",
+          "description": "Fired when the `elevation` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "is-open-changed",
+          "description": "Fired when the `isOpen` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "map-changed",
+          "description": "Fired when the `map` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [
+        {
+          "description": "",
+          "name": "",
+          "range": {
+            "file": "custom-gmap-infowindow.html",
+            "start": {
+              "line": 102,
+              "column": 8
+            },
+            "end": {
+              "line": 102,
+              "column": 21
+            }
+          }
+        }
+      ],
+      "tagname": "custom-gmap-infowindow"
+    }
+  ]
+}

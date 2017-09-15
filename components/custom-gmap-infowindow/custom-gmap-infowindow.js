@@ -24,7 +24,7 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
       /**
        *  Hide the marker when opening infowindow (like Airbnb does)
        */
-      isHideMarkerOnClick: {
+      hideMarkerOnClick: {
         type: Boolean,
         value: false,
       },
@@ -107,7 +107,7 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
     this._removeListeners();
     this.isOpen = false;
     this.$.mainContainer.style.visibility = 'hidden';
-    if (this.isHideMarkerOnClick) {
+    if (this.hideMarkerOnClick) {
       this._marker.setVisible(true);
     }
   }
@@ -293,7 +293,7 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
         .getPropertyValue('border-width'),
       10
     );
-    if (this.isHideMarkerOnClick) {
+    if (this.hideMarkerOnClick) {
       top = Math.round(point.y - this._dim.card.height - carretHeight);
     } else {
       top = Math.round(point.y - this._dim.card.height - this._dim.marker.y - carretHeight);
@@ -314,7 +314,7 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
         this.close();
       }
       this._marker = marker;
-      if (this.isHideMarkerOnClick) {
+      if (this.hideMarkerOnClick) {
         this._marker.setVisible(false);
       }
       this._setMapSize();

@@ -1,14 +1,17 @@
 {
   "name": "custom-gmap-infowindow",
   "main": "custom-gmap-infowindow.html",
-  "authors": ["Jonathan Adeline <Bodhiz>"],
+  "authors": [
+    "Jonathan Adeline <Bodhiz>"
+  ],
   "description": "A customizable infowindow element for google-map web component",
   "version": "0.0.1",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "iron-icon": "PolymerElements/iron-icon#^2.0.0",
     "iron-icons": "PolymerElements/iron-icons#^2.0.0",
-    "paper-styles": "PolymerElements/paper-styles#^2.0.0"
+    "paper-styles": "PolymerElements/paper-styles#^2.0.0",
+    "custom-gmap-infowindow": "DoubleTrade/custom-gmap-infowindow#master"
   },
   "devDependencies": {
     "google-map": "GoogleWebComponents/google-map#^2.0.0",
