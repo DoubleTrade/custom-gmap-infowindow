@@ -11,9 +11,9 @@ This component is a fork from [`plastic-map-info`](https://github.com/mlisook/pl
 
 ### Install
 
-bower install custom-gmap-infowindow
+`bower install DoubleTrade/custom-gmap-infowindow`
 
-[See live demo](https://doubletrade.github.io/custom-gmap-infowindow/components/custom-gmap-infowindow/demo/)
+[See demo](https://doubletrade.github.io/custom-gmap-infowindow/components/custom-gmap-infowindow/demo/)
 [See docs](https://doubletrade.github.io/custom-gmap-infowindow/)
 
 

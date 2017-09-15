@@ -24,11 +24,11 @@
     "polymer": "^2.0.0"
   },
   "homepage": "https://github.com/DoubleTrade/custom-gmap-infowindow",
-  "_release": "533ace1394",
+  "_release": "3c31ba47dd",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "533ace13944142c2110febc20c0f30d24da0684e"
+    "commit": "3c31ba47dd703be51ce81e9793a0cb2056a1882e"
   },
   "_source": "https://github.com/DoubleTrade/custom-gmap-infowindow.git",
   "_target": "master",
