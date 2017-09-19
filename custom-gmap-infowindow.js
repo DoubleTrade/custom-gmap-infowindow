@@ -111,7 +111,7 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
       this._marker.setVisible(true);
     }
     /**
-     * Fired when the infowindow is closed 
+     * Fired when the infowindow is closed
      * @event infowindow-closed
      */
     this.dispatchEvent(new CustomEvent('infowindow-closed', {}));
@@ -300,7 +300,7 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
       .getProjection()
       .fromLatLngToContainerPixel(this._marker.getPosition());
     // calculate placement
-    left = Math.round(point.x - this._dim.card.width / 2);
+    left = Math.round(point.x - (this._dim.card.width / 2));
     const carretHeight = parseInt(
       window
         .getComputedStyle(this.shadowRoot.querySelector('#mainContainer'), ':before')
