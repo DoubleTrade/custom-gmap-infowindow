@@ -17,7 +17,6 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
        */
       elevation: {
         type: Number,
-        notify: true,
         value: 1,
       },
 
@@ -34,7 +33,6 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
        */
       isOpen: {
         type: Boolean,
-        notify: true,
         value: false,
       },
 
@@ -43,7 +41,6 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
        */
       _dim: {
         type: Object,
-        notify: true,
         value: () => ({
           card: {
             height: 10,
@@ -69,16 +66,14 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
        */
       map: {
         type: Object,
-        notify: true,
         observer: '_mapChanged',
       },
 
       /**
-       *  Array containing map listeners for removing purpose.
+       *  Array containing map listeners for removing purposeeee.
        */
       _mapListeners: {
         type: Array,
-        notify: true,
         value: () => [],
       },
 
@@ -111,8 +106,8 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
       this._marker.setVisible(true);
     }
     /**
-     * Fired when the infowindow is closed
      * @event infowindow-closed
+     * Fired when the infowindow is closed
      */
     this.dispatchEvent(new CustomEvent('infowindow-closed', {}));
   }
@@ -120,8 +115,8 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
   _handleUserClosing() {
     this.close();
     /**
+     * @event infowindow-closed-by-user
      * Fired when the infowindow is closed only by user interaction
-     * @event infowindow-closed
      */
     this.dispatchEvent(new CustomEvent('infowindow-closed-by-user', {}));
   }
@@ -325,7 +320,6 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
   showInfoWindow(marker) {
     if (this.map && marker) {
       if (this.isOpen) {
-        console.log('cloossee');
         this.close();
       }
       this._marker = marker;
