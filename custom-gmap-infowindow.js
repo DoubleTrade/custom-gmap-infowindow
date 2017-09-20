@@ -17,7 +17,6 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
        */
       elevation: {
         type: Number,
-        notify: true,
         value: 1,
       },
 
@@ -34,7 +33,6 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
        */
       isOpen: {
         type: Boolean,
-        notify: true,
         value: false,
       },
 
@@ -43,7 +41,6 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
        */
       _dim: {
         type: Object,
-        notify: true,
         value: () => ({
           card: {
             height: 10,
@@ -69,16 +66,14 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
        */
       map: {
         type: Object,
-        notify: true,
         observer: '_mapChanged',
       },
 
       /**
-       *  Array containing map listeners for removing purpose.
+       *  Array containing map listeners for removing purposeeee.
        */
       _mapListeners: {
         type: Array,
-        notify: true,
         value: () => [],
       },
 
@@ -325,7 +320,6 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
   showInfoWindow(marker) {
     if (this.map && marker) {
       if (this.isOpen) {
-        console.log('cloossee');
         this.close();
       }
       this._marker = marker;
