@@ -107,9 +107,23 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
     this._removeListeners();
     this.isOpen = false;
     this.$.mainContainer.style.visibility = 'hidden';
-    if (this.hideMarkerOnClick) {
+    if (this.hideMarkerOnClick && this._marker) {
       this._marker.setVisible(true);
     }
+    /**
+     * Fired when the infowindow is closed
+     * @event infowindow-closed
+     */
+    this.dispatchEvent(new CustomEvent('infowindow-closed', {}));
+  }
+
+  _handleUserClosing() {
+    this.close();
+    /**
+     * Fired when the infowindow is closed only by user interaction
+     * @event infowindow-closed
+     */
+    this.dispatchEvent(new CustomEvent('infowindow-closed-by-user', {}));
   }
 
   /**
@@ -311,6 +325,7 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
   showInfoWindow(marker) {
     if (this.map && marker) {
       if (this.isOpen) {
+        console.log('cloossee');
         this.close();
       }
       this._marker = marker;
@@ -319,10 +334,11 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
       }
       this._setMapSize();
       this._setMarkerSize();
-      this.$.mainContainer.style.visibility = 'visible';
+
       setTimeout(() => {
         this._setInfowindowSize();
         const placement = this._getInfowindowPosition();
+        this.$.mainContainer.style.visibility = 'visible';
         this._initListeners();
         this.isOpen = true;
         if (!this._isInBounds(placement)) {

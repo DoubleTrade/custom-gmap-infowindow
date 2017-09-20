@@ -13,8 +13,8 @@ This component is a fork from [`plastic-map-info`](https://github.com/mlisook/pl
 
 `bower install DoubleTrade/custom-gmap-infowindow`
 
-[See demo](https://doubletrade.github.io/custom-gmap-infowindow/components/custom-gmap-infowindow/demo/)
-[See docs](https://doubletrade.github.io/custom-gmap-infowindow/)
+- [See advanced demo](https://doubletrade.github.io/custom-gmap-infowindow/components/custom-gmap-infowindow/demo/)
+- [See docs](https://doubletrade.github.io/custom-gmap-infowindow/)
 
 
 ### Browser support
@@ -34,6 +34,8 @@ Custom property                              | Description                      
 `--custom-gmap-infowindow-caret-border-size` | Mixin applied to the infowindow bottom caret border | `17px`
 `--custom-gmap-infowindow-caret-border-color`| Mixin applied to the infowindow bottom caret border | `rgba(0, 0, 0, 0.3)`
 
+
+### Example
 <!---
 ```
 <custom-element-demo>

@@ -8,17 +8,12 @@
 <link rel="import" href="../paper-styles/element-styles/paper-material-styles.html">
 
 <!--
-`custom-gmap-infowindow` is a Polymer 2.0 element allowing to customize Google map infowindow when using `google-map` official web component.
-With this component you can use event handlers and style the infowindow with CSS classes.
+`custom-gmap-infowindow` is a Polymer 2.0 element allowing to customize Google Map web component infowindow.
 
 ## Install
 
 `bower install DoubleTrade/custom-gmap-infowindow`
 
-# Demo & Docs
-
-[See demo](https://doubletrade.github.io/custom-gmap-infowindow/components/custom-gmap-infowindow/demo/)
-[See docs](https://doubletrade.github.io/custom-gmap-infowindow/)
 
 ## Style Mixins
 
@@ -33,7 +28,6 @@ Custom property                              | Description                      
 `--custom-gmap-infowindow-caret-border-color`| Mixin applied to the infowindow bottom caret border | `rgba(0, 0, 0, 0.3)`
 
 @element custom-gmap-infowindow
-@demo demo/index.html
 -->
 
 <dom-module id="custom-gmap-infowindow">
@@ -105,7 +99,7 @@ Custom property                              | Description                      
       <div>
         <slot></slot>
       </div>
-      <iron-icon icon="icons:close" on-tap="close"></iron-icon>
+      <iron-icon icon="icons:close" on-tap="_handleUserClosing"></iron-icon>
     </div>
   </template>
 
