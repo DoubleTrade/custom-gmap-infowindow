@@ -106,8 +106,8 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
       this._marker.setVisible(true);
     }
     /**
-     * Fired when the infowindow is closed
      * @event infowindow-closed
+     * Fired when the infowindow is closed
      */
     this.dispatchEvent(new CustomEvent('infowindow-closed', {}));
   }
@@ -115,8 +115,8 @@ class CustomGmapInfowindow extends Polymer.GestureEventListeners(Polymer.Element
   _handleUserClosing() {
     this.close();
     /**
-     * Fired when the infowindow is closed only by user interaction
      * @event infowindow-closed-by-user
+     * Fired when the infowindow is closed only by user interaction
      */
     this.dispatchEvent(new CustomEvent('infowindow-closed-by-user', {}));
   }

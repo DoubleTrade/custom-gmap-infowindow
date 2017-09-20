@@ -520,13 +520,13 @@
         {
           "type": "CustomEvent",
           "name": "infowindow-closed",
-          "description": "infowindow-closed",
+          "description": "infowindow-closed\nFired when the infowindow is closed",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
           "name": "infowindow-closed-by-user",
-          "description": "infowindow-closed-by-user",
+          "description": "infowindow-closed-by-user\nFired when the infowindow is closed only by user interaction",
           "metadata": {}
         }
       ],
