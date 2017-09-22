@@ -3,7 +3,7 @@
   "main": "custom-gmap-infowindow.html",
   "authors": ["Jonathan Adeline <Bodhiz>"],
   "description": "A customizable infowindow element for google-map web component",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "iron-icon": "PolymerElements/iron-icon#^2.0.0",
